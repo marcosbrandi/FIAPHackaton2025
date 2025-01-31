@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\configuration\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\configuration\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\application\\commands\\medico\\novo\\novomedicocommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\application\\commands\\medico\\novo\\novomedicocommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\application\\commands\\medico\\atualizar\\atualizarmedicocommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\application\\commands\\medico\\atualizar\\atualizarmedicocommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\controllers\\medicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\controllers\\medicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +35,58 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DependencyInjectionConfig.cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Configuration\\DependencyInjectionConfig.cs",
+              "RelativeDocumentMoniker": "HM.API\\Configuration\\DependencyInjectionConfig.cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Configuration\\DependencyInjectionConfig.cs",
+              "RelativeToolTip": "HM.API\\Configuration\\DependencyInjectionConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T22:00:33.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AtualizarMedicoCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Medico\\Atualizar\\AtualizarMedicoCommandHandler.cs",
+              "RelativeDocumentMoniker": "HM.API\\Application\\Commands\\Medico\\Atualizar\\AtualizarMedicoCommandHandler.cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Medico\\Atualizar\\AtualizarMedicoCommandHandler.cs",
+              "RelativeToolTip": "HM.API\\Application\\Commands\\Medico\\Atualizar\\AtualizarMedicoCommandHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T21:55:27.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NovoMedicoCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Medico\\Novo\\NovoMedicoCommandHandler.cs",
+              "RelativeDocumentMoniker": "HM.API\\Application\\Commands\\Medico\\Novo\\NovoMedicoCommandHandler.cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Medico\\Novo\\NovoMedicoCommandHandler.cs",
+              "RelativeToolTip": "HM.API\\Application\\Commands\\Medico\\Novo\\NovoMedicoCommandHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T21:28:22.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MedicoController.cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\MedicoController.cs",
+              "RelativeDocumentMoniker": "HM.API\\Controllers\\MedicoController.cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\MedicoController.cs",
+              "RelativeToolTip": "HM.API\\Controllers\\MedicoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEIAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T20:34:20.124Z",
+              "EditorCaption": ""
             }
           ]
         }
