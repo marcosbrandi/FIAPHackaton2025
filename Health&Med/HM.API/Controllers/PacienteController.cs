@@ -49,10 +49,10 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] MedicoAuthenticateDto request)
+        public async Task<IActionResult> Login([FromBody] PacienteAuthenticateDto request)
         {
-            var medico = await _pacienteRepository.Authenticate(request.Crm, request.Senha);
-            if (medico == null) return Unauthorized();
+            var paciente = await _pacienteRepository.Authenticate(request.CpfEmail, request.Senha);
+            if (paciente == null) return Unauthorized();
 
             string? securityKey = _configuration["Jwt:Key"];
             string? issuer = _configuration["Jwt:Issuer"];
@@ -61,7 +61,7 @@ namespace HM.API.Controllers
             if (securityKey != null && issuer != null && audience != null)
             {
                 var tokenGenerator = new JwtTokenService(securityKey, issuer, audience);
-                var token = tokenGenerator.GenerateJwtToken(request.Crm, "Paciente");
+                var token = tokenGenerator.GenerateJwtToken(request.CpfEmail, "Paciente");
                 return Ok(new { Token = token });
             }
 

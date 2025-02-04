@@ -19,6 +19,7 @@ namespace HM.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> ListaTodos([FromQuery] Guid? medicoId)
         {
             return CustomResponse(await _agendaRepository.GetAllAsync(medicoId));
