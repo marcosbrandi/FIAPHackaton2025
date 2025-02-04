@@ -42,7 +42,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        [Authorize(Roles = "Medico")]
+        //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> Adiciona(NovoMedicoCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));
@@ -69,7 +69,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Medico")]
+        //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarMedicoCommand command)
         {
             var result = await _medicoRepository.FindAsync(id);
@@ -81,7 +81,7 @@ namespace HM.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Medico")]
+        //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var result = await _medicoRepository.FindAsync(id);

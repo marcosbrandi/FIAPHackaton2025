@@ -3,12 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HM.Clientes.API.Configuration
 {
-    public static class ApiConfig
+    public static class ApiConfig3
     {
-        public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static void AddApiConfiguration3(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<HMDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddDbContext<HMDbContext>(options =>
+            //    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
 
@@ -23,7 +26,7 @@ namespace HM.Clientes.API.Configuration
             });
         }
 
-        public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
+        public static void UseApiConfiguration3(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
