@@ -4,7 +4,7 @@ using HM.Core.Messages;
 using HM.Domain.Interfaces;
 using MediatR;
 
-namespace HM.API.Application.Commands.Medico.Novo
+namespace HM.API.Application.Commands.Medico
 {
     public class NovoMedicoCommandHandler : CommandHandler, IRequestHandler<NovoMedicoCommand, ValidationResult>
     {

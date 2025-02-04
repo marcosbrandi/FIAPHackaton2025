@@ -1,39 +1,40 @@
-﻿using HM.API.Application.Commands.Medico;
+﻿using HM.API.Application.Commands.Paciente;
+using HM.API.Application.Dtos;
 using HM.API.Application.Service;
 using HM.Core.Mediator;
-using HM.Domain.Enum;
 using HM.Domain.Interfaces;
 using HM.WebAPI.Core.Controllers;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Dtos;
 
 namespace HM.API.Controllers
 {
-    public class MedicoController : MainController
+    public class PacienteController : MainController
     {
         private readonly IMediatorHandler _mediator;
+        private readonly JwtSettings _jwtSettings;
         private readonly IConfiguration _configuration;
-        private readonly IMedicoRepository _medicoRepository;
+        private readonly IPacienteRepository _pacienteRepository;
 
-        public MedicoController(IMediatorHandler mediator, IMedicoRepository medicoRepository, IConfiguration configuration)
+        public PacienteController(IMediatorHandler mediator, IPacienteRepository pacienteRepository, JwtSettings jwtSettings, IConfiguration configuration)
         {
             _mediator = mediator;
-            _medicoRepository = medicoRepository;
+            _pacienteRepository = pacienteRepository;
+            _jwtSettings = jwtSettings;
             _configuration = configuration;
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListaTodos([FromQuery] string? nome, [FromQuery] Especialidade? especialidade)
+        public async Task<IActionResult> ListaTodos()
         {
-            var result = await _medicoRepository.GetAllAsync(nome, especialidade);
-            return CustomResponse(result);
+            return CustomResponse(await _pacienteRepository.GetAllAsync());
         }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
-            var result = await _medicoRepository.FindAsync(id);
+            var result = await _pacienteRepository.FindAsync(id);
             if (result == null)
             {
                 return NotFound();
@@ -42,8 +43,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        [Authorize(Roles = "Medico")]
-        public async Task<IActionResult> Adiciona(NovoMedicoCommand command)
+        public async Task<IActionResult> Adicionar(NovoPacienteCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));
         }
@@ -51,7 +51,7 @@ namespace HM.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] MedicoAuthenticateDto request)
         {
-            var medico = await _medicoRepository.Authenticate(request.Crm, request.Senha);
+            var medico = await _pacienteRepository.Authenticate(request.Crm, request.Senha);
             if (medico == null) return Unauthorized();
 
             string? securityKey = _configuration["Jwt:Key"];
@@ -61,7 +61,7 @@ namespace HM.API.Controllers
             if (securityKey != null && issuer != null && audience != null)
             {
                 var tokenGenerator = new JwtTokenService(securityKey, issuer, audience);
-                var token = tokenGenerator.GenerateJwtToken(request.Crm, "Medico");
+                var token = tokenGenerator.GenerateJwtToken(request.Crm, "Paciente");
                 return Ok(new { Token = token });
             }
 
@@ -69,10 +69,9 @@ namespace HM.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Medico")]
-        public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarMedicoCommand command)
+        public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarPacienteCommand command)
         {
-            var result = await _medicoRepository.FindAsync(id);
+            var result = await _pacienteRepository.FindAsync(id);
             if (result == null)
             {
                 return NotFound();
@@ -81,16 +80,15 @@ namespace HM.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
-            var result = await _medicoRepository.FindAsync(id);
+            var result = await _pacienteRepository.FindAsync(id);
             if (result == null)
             {
                 return NotFound();
             }
 
-            return CustomResponse(await _mediator.EnviarComando(new ExcluirMedicoCommand(id)));
+            return CustomResponse(await _mediator.EnviarComando(new ExcluirPacienteCommand(id)));
         }
 
     }

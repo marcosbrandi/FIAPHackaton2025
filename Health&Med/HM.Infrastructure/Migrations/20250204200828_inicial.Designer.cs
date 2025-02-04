@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HM.Infrastructure.Migrations
 {
     [DbContext(typeof(HMDbContext))]
-    [Migration("20250131205439_inicial")]
+    [Migration("20250204200828_inicial")]
     partial class inicial
     {
         /// <inheritdoc />
@@ -31,14 +31,23 @@ namespace HM.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Data")
+                    b.Property<bool>("Aceita")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("DataHora")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Especialidade")
+                        .HasColumnType("integer");
 
                     b.Property<Guid>("MedicoId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid?>("PacienteId")
                         .HasColumnType("uuid");
+
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -68,9 +77,8 @@ namespace HM.Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("Especialidade")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
+                    b.Property<int>("Especialidade")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nome")
                         .IsRequired()

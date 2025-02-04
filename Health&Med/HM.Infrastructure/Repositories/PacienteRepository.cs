@@ -27,6 +27,10 @@ namespace HM.Infrastructure.Repositories
         {
             return await _context.Pacientes.FindAsync(id);
         }
+        public async Task<Paciente?> Authenticate(string emailCpf, string senha)
+        {
+            return await _context.Pacientes.FirstOrDefaultAsync(x => x.Email == emailCpf && x.Senha == senha || x.Cpf == emailCpf && x.Senha == senha);
+        }
 
         /// <summary>
         /// Faz uma busca de todos os médicos

@@ -1,7 +1,7 @@
 ﻿using HM.Core.Messages;
 using FluentValidation;
 
-namespace HM.API.Application.Commands.Medico.Excluir
+namespace HM.API.Application.Commands.Medico
 {
     public class ExcluirMedicoCommand : Command
     {

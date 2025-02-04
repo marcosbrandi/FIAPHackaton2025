@@ -19,7 +19,7 @@ namespace HM.Infrastructure.Migrations
                     Nome = table.Column<string>(type: "varchar(200)", maxLength: 100, nullable: false),
                     Cpf = table.Column<string>(type: "varchar(100)", nullable: false),
                     Crm = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Especialidade = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Especialidade = table.Column<int>(type: "integer", nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", maxLength: 200, nullable: false),
                     Senha = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
@@ -50,7 +50,10 @@ namespace HM.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     MedicoId = table.Column<Guid>(type: "uuid", nullable: false),
                     PacienteId = table.Column<Guid>(type: "uuid", nullable: true),
-                    Data = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Especialidade = table.Column<int>(type: "integer", nullable: false),
+                    DataHora = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Valor = table.Column<decimal>(type: "numeric", nullable: false),
+                    Aceita = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {

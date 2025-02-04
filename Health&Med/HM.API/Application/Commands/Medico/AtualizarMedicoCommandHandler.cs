@@ -3,18 +3,18 @@ using FluentValidation.Results;
 using MediatR;
 using HM.Domain.Interfaces;
 
-namespace HM.API.Application.Commands.Medico.Excluir
+namespace HM.API.Application.Commands.Medico
 {
-    public class ExcluirMedicoCommandHandler : CommandHandler, IRequestHandler<ExcluirMedicoCommand, ValidationResult>
+    public class AtualizarMedicoCommandHandler : CommandHandler, IRequestHandler<AtualizarMedicoCommand, ValidationResult>
     {
         private readonly IMedicoRepository _medicoRepository;
 
-        public ExcluirMedicoCommandHandler(IMedicoRepository medicoRepository)
+        public AtualizarMedicoCommandHandler(IMedicoRepository medicoRepository)
         {
             _medicoRepository = medicoRepository;
         }
 
-        public async Task<ValidationResult> Handle(ExcluirMedicoCommand message, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Handle(AtualizarMedicoCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;
 
@@ -26,7 +26,8 @@ namespace HM.API.Application.Commands.Medico.Excluir
                 return ValidationResult;
             }
 
-            _medicoRepository.Delete(actual);
+            actual.Update(message.Nome, message.Cpf, message.Crm, message.Especialidade, message.Email, message.Senha);
+            _medicoRepository.Update(actual);
 
             return await PersistirDados(_medicoRepository.UnitOfWork);
         }

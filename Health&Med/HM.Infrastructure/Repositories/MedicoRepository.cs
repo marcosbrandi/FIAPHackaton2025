@@ -1,5 +1,6 @@
 ﻿using HM.Core.Data;
 using HM.Domain.Entities;
+using HM.Domain.Enum;
 using HM.Domain.Interfaces;
 using HM.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -28,14 +29,31 @@ namespace HM.Infrastructure.Repositories
             return await _context.Medicos.FindAsync(id);
         }
 
+        public async Task<Medico?> Authenticate(string crm, string senha)
+        {
+            return await _context.Medicos.FirstOrDefaultAsync(x => x.Crm == crm && x.Senha == senha);
+        }
+
         /// <summary>
         /// Faz uma busca de todos os médicos
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<IEnumerable<Medico>> GetAllAsync()
+        public async Task<IEnumerable<Medico>> GetAllAsync(string? nome, Especialidade? especialidade)
         {
-            return await _context.Medicos.ToListAsync();
+            var result = _context.Medicos.AsNoTracking();
+
+            if (nome != null)
+            {
+                result = result.Where(x => x.Nome == nome);
+            }
+
+            if (especialidade != null)
+            {
+                result = result.Where(x => x.Especialidade == especialidade);
+            }
+
+            return await result.ToListAsync();
         }
 
         /// <summary>

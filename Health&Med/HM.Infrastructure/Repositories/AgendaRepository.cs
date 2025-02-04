@@ -1,5 +1,6 @@
 ﻿using HM.Core.Data;
 using HM.Domain.Entities;
+using HM.Domain.Enum;
 using HM.Domain.Interfaces;
 using HM.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -33,9 +34,16 @@ namespace HM.Infrastructure.Repositories
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<IEnumerable<Agenda>> GetAllAsync()
+        public async Task<IEnumerable<Agenda>> GetAllAsync(Guid? medicoId)
         {
-            return await _context.Agendas.ToListAsync();
+            var result = _context.Agendas.AsNoTracking();
+
+            if (medicoId != null)
+            {
+                result = result.Where(x => x.MedicoId == medicoId);
+            }
+
+            return await result.ToListAsync();
         }
 
         /// <summary>

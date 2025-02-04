@@ -22,9 +22,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Folder Include="Application\Commands\Paciente\Atualizar\" />
-    <Folder Include="Application\Commands\Paciente\Excluir\" />
-    <Folder Include="Application\Commands\Paciente\Novo\" />
     <Folder Include="Application\Queries\" />
     <Folder Include="Services\" />
   </ItemGroup>
