@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E107E80-AF8F-41F8-A810-9AF3C8E5AC0A}|HM.Infrastructure\\HM.Infrastructure.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.infrastructure\\hm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2E107E80-AF8F-41F8-A810-9AF3C8E5AC0A}|HM.Infrastructure\\HM.Infrastructure.csproj|solutionrelative:hm.infrastructure\\hm.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\configuration\\apiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\configuration\\apiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\controllers\\pacientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\controllers\\pacientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,6 +13,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\controllers\\agendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\controllers\\agendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\application\\service\\jwttokenservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\application\\service\\jwttokenservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,34 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HM.Infrastructure",
-              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.Infrastructure\\HM.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "HM.Infrastructure\\HM.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.Infrastructure\\HM.Infrastructure.csproj",
-              "RelativeToolTip": "HM.Infrastructure\\HM.Infrastructure.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-04T22:47:19.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApiConfig.cs",
-              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Configuration\\ApiConfig.cs",
-              "RelativeDocumentMoniker": "HM.API\\Configuration\\ApiConfig.cs",
-              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Configuration\\ApiConfig.cs",
-              "RelativeToolTip": "HM.API\\Configuration\\ApiConfig.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBkAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T22:36:27.069Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -72,52 +46,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "AgendaController.cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\AgendaController.cs",
+              "RelativeDocumentMoniker": "HM.API\\Controllers\\AgendaController.cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\AgendaController.cs",
+              "RelativeToolTip": "HM.API\\Controllers\\AgendaController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAA9wCUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T23:56:29.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\appsettings.json",
+              "RelativeDocumentMoniker": "HM.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\appsettings.json",
+              "RelativeToolTip": "HM.API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-04T23:12:26.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JwtTokenService .cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Service\\JwtTokenService .cs",
+              "RelativeDocumentMoniker": "HM.API\\Application\\Service\\JwtTokenService .cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Service\\JwtTokenService .cs",
+              "RelativeToolTip": "HM.API\\Application\\Service\\JwtTokenService .cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwBUAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T23:06:18.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Program.cs",
               "RelativeDocumentMoniker": "HM.API\\Program.cs",
               "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Program.cs",
               "RelativeToolTip": "HM.API\\Program.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABIAAAAFAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAuwH4AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T21:51:50.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AgendaController.cs",
-              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\AgendaController.cs",
-              "RelativeDocumentMoniker": "HM.API\\Controllers\\AgendaController.cs",
-              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\AgendaController.cs",
-              "RelativeToolTip": "HM.API\\Controllers\\AgendaController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T21:21:35.908Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PacienteController.cs",
               "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\PacienteController.cs",
               "RelativeDocumentMoniker": "HM.API\\Controllers\\PacienteController.cs",
               "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\PacienteController.cs",
               "RelativeToolTip": "HM.API\\Controllers\\PacienteController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAD8AAABXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T21:18:56.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "MedicoController.cs",
               "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\MedicoController.cs",
               "RelativeDocumentMoniker": "HM.API\\Controllers\\MedicoController.cs",
               "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\MedicoController.cs",
               "RelativeToolTip": "HM.API\\Controllers\\MedicoController.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAcwFMAAAAnAAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAwwEIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T19:59:45.968Z",
               "EditorCaption": ""

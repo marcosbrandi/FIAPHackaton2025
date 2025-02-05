@@ -12,15 +12,13 @@ namespace HM.API.Controllers
     public class PacienteController : MainController
     {
         private readonly IMediatorHandler _mediator;
-        private readonly JwtSettings _jwtSettings;
         private readonly IConfiguration _configuration;
         private readonly IPacienteRepository _pacienteRepository;
 
-        public PacienteController(IMediatorHandler mediator, IPacienteRepository pacienteRepository, JwtSettings jwtSettings, IConfiguration configuration)
+        public PacienteController(IMediatorHandler mediator, IPacienteRepository pacienteRepository, IConfiguration configuration)
         {
             _mediator = mediator;
             _pacienteRepository = pacienteRepository;
-            _jwtSettings = jwtSettings;
             _configuration = configuration;
         }
 

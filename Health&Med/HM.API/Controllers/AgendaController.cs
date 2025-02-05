@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HM.API.Controllers
 {
+    [Authorize]
     public class AgendaController : MainController
     {
         private readonly IMediatorHandler _mediator;
@@ -19,12 +20,12 @@ namespace HM.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> ListaTodos([FromQuery] Guid? medicoId)
         {
             return CustomResponse(await _agendaRepository.GetAllAsync(medicoId));
         }
 
+        [Authorize(Roles = "Medico")]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {

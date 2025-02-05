@@ -22,10 +22,21 @@ namespace HM.API.Application.Service
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
+            var claims = new[]
+        {
+            new Claim(JwtRegisteredClaimNames.Email, email),
+            new Claim(JwtRegisteredClaimNames.Jti, role),
+            new Claim(JwtRegisteredClaimNames.Profile, role),
+            new Claim(ClaimTypes.Role, role),
+            new Claim("roles", role),
+            new Claim("role", role),
+        };
+
             var token = new JwtSecurityToken(
                 _issuer,
                 _audience,
-                claims: new[] { new Claim(ClaimTypes.Email, email), new Claim(ClaimTypes.Role, role) },
+                //claims: new[] { new Claim(ClaimTypes.Email, email), new Claim(ClaimTypes.Role, role) },
+                claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: credentials
             );
