@@ -30,6 +30,17 @@ namespace HM.Infrastructure.Repositories
         }
 
         /// <summary>
+        /// Busca e retorna um agenda ativa pelo seu registro no banco, recebendo um id
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task<Agenda?> GetActiveAgenda(Guid id)
+        {
+            return await _context.Agendas.FirstOrDefaultAsync(x => x.Id == id && x.PacienteId == null);
+        }
+
+        /// <summary>
         /// Faz uma busca de todos os médicos
         /// </summary>
         /// <returns></returns>

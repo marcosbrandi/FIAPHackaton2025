@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HM.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AgendaController : MainController
     {
         private readonly IMediatorHandler _mediator;
@@ -38,26 +38,14 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        [Authorize(Roles = "Medico")]
+        //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> Adicionar(NovoAgendaCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Medico")]
-        public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarAgendaCommand command)
-        {
-            var result = await _agendaRepository.FindAsync(id);
-            if (result == null)
-            {
-                return NotFound();
-            }
-            return CustomResponse(await _mediator.EnviarComando(command));
-        }
-
         [HttpPost("AgendarConsulta")]
-        [Authorize(Roles = "Paciente")]
+        //[Authorize(Roles = "Paciente")]
         public async Task<IActionResult> AgendarConsulta([FromBody] AgendarConsultaCommand command)
         {
             var result = await _agendaRepository.FindAsync(command.Id);
@@ -68,8 +56,20 @@ namespace HM.API.Controllers
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
+        [HttpPut("{id}")]
+        //[Authorize(Roles = "Medico")]
+        public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarAgendaCommand command)
+        {
+            var result = await _agendaRepository.FindAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return CustomResponse(await _mediator.EnviarComando(command));
+        }
+
         [HttpPatch("{id}")]
-        [Authorize(Roles = "Medico")]
+        //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> AceitarAgendamento([FromRoute] Guid id, AceitarAgendamentoCommand command)
         {
             var result = await _agendaRepository.FindAsync(id);

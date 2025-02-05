@@ -7,6 +7,7 @@ namespace HM.Domain.Interfaces
     {
         public Task<IEnumerable<Agenda>> GetAllAsync(Guid? medicoId);
         public Task<Agenda?> FindAsync(Guid id);
+        public Task<Agenda?> GetActiveAgenda(Guid id);
         public Task<Agenda> AddAsync(Agenda agenda);
         public void Update(Agenda agenda);
         public void Delete(Agenda agenda);

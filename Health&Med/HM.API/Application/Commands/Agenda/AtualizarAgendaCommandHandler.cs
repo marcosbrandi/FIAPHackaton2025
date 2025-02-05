@@ -25,7 +25,9 @@ namespace HM.API.Application.Commands.Agenda
                 return ValidationResult;
             }
 
-            actual.Update(message.MedicoId, message.PacienteId, message.Especialidade, message.DataHora, message.Valor);
+            //Lógica para criar a agenda
+
+            actual.Update(message.MedicoId, message.PacienteId, message.Especialidade, message.DataConsulta, message.InicioConsulta, message.FimConsulta, message.Valor);
             _agendaRepository.Update(actual);
 
             return await PersistirDados(_agendaRepository.UnitOfWork);
@@ -38,7 +40,9 @@ namespace HM.API.Application.Commands.Agenda
         public Guid MedicoId { get; set; }
         public Guid? PacienteId { get; set; }
         public Especialidade Especialidade { get; set; }
-        public DateTime DataHora { get; set; }
+        public DateOnly DataConsulta { get; set; }
+        public TimeOnly InicioConsulta { get; set; }
+        public TimeOnly FimConsulta { get; set; }
         public Decimal Valor { get; set; }
     }
 }

@@ -8,59 +8,33 @@ namespace HM.API.Application.Commands.Agenda
     public class AgendarConsultaCommandHandler : CommandHandler, IRequestHandler<AgendarConsultaCommand, ValidationResult>
     {
         private readonly IAgendaRepository _agendaRepository;
+        private readonly IPacienteRepository _pacienteRepository;
+        private readonly IMedicoRepository _medicoRepository;
 
-        public AgendarConsultaCommandHandler(IAgendaRepository agendaRepository)
+        public AgendarConsultaCommandHandler(IAgendaRepository agendaRepository, IPacienteRepository pacienteRepository, IMedicoRepository medicoRepository)
         {
             _agendaRepository = agendaRepository;
+            _pacienteRepository = pacienteRepository;
+            _medicoRepository = medicoRepository;
         }
 
         public async Task<ValidationResult> Handle(AgendarConsultaCommand message, CancellationToken cancellationToken)
         {
-            //// Verifica se o paciente existe
-            //var paciente = await _context.Pacientes.FindAsync(consultaDTO.PacienteId);
-            //if (paciente == null)
-            //{
-            //    return BadRequest("Paciente não encontrado.");
-            //}
+            // Verifica se o paciente existe
+            var paciente = await _pacienteRepository.FindAsync(message.PacienteId);
+            if (paciente == null)
+            {
+                AdicionarErro("Paciente não encontrado!");
+                return ValidationResult;
+            }
 
-            //// Verifica se o médico existe
-            //var medico = await _context.Medicos.FindAsync(consultaDTO.MedicoId);
-            //if (medico == null)
-            //{
-            //    return BadRequest("Médico não encontrado.");
-            //}
-
-            //// Verifica se o horário está disponível na agenda do médico
-            //var horarioDisponivel = await _context.Agendas
-            //    .AnyAsync(a => a.MedicoId == consultaDTO.MedicoId && a.DataHora == consultaDTO.DataHora);
-
-            //if (!horarioDisponivel)
-            //{
-            //    return BadRequest("Horário indisponível para o médico selecionado.");
-            //}
-
-            //// Verifica se já existe uma consulta agendada no mesmo horário para o médico
-            //var consultaExistente = await _context.Consultas
-            //    .AnyAsync(c => c.MedicoId == consultaDTO.MedicoId && c.DataHora == consultaDTO.DataHora);
-
-            //if (consultaExistente)
-            //{
-            //    return BadRequest("Já existe uma consulta agendada para este horário.");
-            //}
-
-            //// Cria uma nova consulta a partir do DTO
-            //var consulta = new Consulta
-            //{
-            //    DataHora = consultaDTO.DataHora,
-            //    PacienteId = consultaDTO.PacienteId,
-            //    MedicoId = consultaDTO.MedicoId
-            //};
-
-            //// Adiciona a consulta ao banco de dados
-            //_context.Consultas.Add(consulta);
-            //await _context.SaveChangesAsync();
-
-            //return Ok(new { Message = "Consulta agendada com sucesso!", Consulta = consulta });
+            //Recebe os dados a agenda médica disponível
+            var agenda = await _agendaRepository.GetActiveAgenda(message.Id);
+            if (agenda == null)
+            {
+                AdicionarErro("Horário indisponível para o médico selecionado!");
+                return ValidationResult;
+            }
 
             var actual = await _agendaRepository.FindAsync(message.Id);
 
