@@ -19,19 +19,21 @@ namespace HM.API.Controllers
             _agendaRepository = agendaRepository;
         }
 
+        //[Authorize(Roles = "Medico")]
         [HttpGet]
         public async Task<IActionResult> ListaTodos([FromQuery] Guid? medicoId)
         {
             return CustomResponse(await _agendaRepository.GetAllAsync(medicoId));
         }
 
+        //[Authorize]
         [HttpGet("ListaDisponiveis")]
         public async Task<IActionResult> ListaDisponiveis([FromQuery] Guid? medicoId, [FromQuery] DateOnly? dataConsulta)
         {
             return CustomResponse(await _agendaRepository.ListaDisponiveis(medicoId, dataConsulta));
         }
 
-        //[Authorize(Roles = "Medico")]
+        //[Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
@@ -74,7 +76,7 @@ namespace HM.API.Controllers
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
-        [HttpPatch("{id}")]
+        [HttpPatch("AceitarAgendamento/{id}")]
         //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> AceitarAgendamento([FromRoute] Guid id, AceitarAgendamentoCommand command)
         {

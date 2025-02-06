@@ -25,7 +25,11 @@ namespace HM.Domain.Entities
         [Display(Name = "Nome", Description = "Informe o Nome do Contato.")]
         [StringLength(100, ErrorMessage = "O campo Nome permite até 100 caracteres")]
         public string Nome { get; private set; } = string.Empty;
+
         public string Cpf { get; private set; } = string.Empty;
+        //public string Cpf2
+        //{
+        //    get { { return Tools.MaskCpf(Cpf) }}
 
         [Required(ErrorMessage = "e-Mail não informado", AllowEmptyStrings = false)]
         [EmailAddress(ErrorMessage = "e-Mail em formato inválido.")]

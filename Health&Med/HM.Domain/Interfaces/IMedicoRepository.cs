@@ -8,6 +8,7 @@ namespace HM.Domain.Interfaces
     {
         public Task<IEnumerable<Medico>> GetAllAsync(string? nome, Especialidade? especialidade);
         public Task<Medico?> Authenticate(string crm, string senha);
+        public Task<Medico?> GetByCRM(string crm);        
         public Task<Medico?> FindAsync(Guid id);
         public Task<Medico> AddAsync(Medico medico);
         public void Update(Medico medico);

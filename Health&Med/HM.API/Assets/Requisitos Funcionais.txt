@@ -1,0 +1,51 @@
+Requisitos Funcionais
+1. Autenticação do Usuário (Médico)
+O sistema deve permitir que o médico faça login usando o número de CRM
+e uma senha.
+'POST' 'https://localhost:7157/api/Medico/login
+ !!! (Criptografar a senha)
+
+2. Cadastro/Edição de Horários Disponíveis (Médico)
+O sistema deve permitir que o médico cadastre e edite os horários
+disponíveis para agendamento de consultas.
+CREATE / 'POST' 'https://localhost:7157/api/Agenda'
+UPDATE / 'PUT' 'https://localhost:7157/api/Agenda/3fa85f64-5717-4562-b3fc-2c963f66afa6'
+
+3. Aceite ou Recusa de Consultas Médicas (Médico)
+O médico deve poder aceitar ou recusar consultas médicas agendadas.
+ACEITE / 'PATCH' 'https://localhost:7157/api/Agenda/AceitarAgendamento/3fa85f64-5717-4562-b3fc-2c963f66afa6'
+
+4. Autenticação do Usuário (Paciente)
+O sistema deve permitir que o paciente faça login usando um e-mail ou
+CPF e uma senha.
+'POST' \ 'https://localhost:7157/api/Paciente/login' 
+!!! (Criptografar a senha)
+!!! (Mascarar CPF)
+
+5. Busca por Médicos (Paciente)
+O sistema deve permitir que o paciente visualize a lista de médicos
+disponíveis, utilizando filtros como especialidade.
+'GET' \ 'https://localhost:7157/api/Medico'
+
+6. Agendamento de Consultas (Paciente)
+Após selecionar o médico, o paciente deve poder visualizar a agenda do
+médico e o valor da consulta, e efetuar o agendamento.
+'GET' \ 'https://localhost:7157/api/Medico/3fa85f64-5717-4562-b3fc-2c963f66afa6'
+!!!! O usuário paciente poderá cancelar a consulta mediante justificativa.
+(Criar um EndPoint para o paciente cancelar a consulta - Enviando uma justificativa como parametro)
+(Criar um endpoint para que o médico possa aceitar as agendas cancelas - Listando por "Justificativas diferentes de NULL")
+
+Requisitos Não Funcionais
+1. Alta Disponibilidade
+O sistema deve estar disponível 24/7 devido à sua natureza crítica no
+setor de saúde.
+
+2. Escalabilidade
+O sistema deve ser capaz de lidar com alta demanda, especialmente para
+profissionais muito procurados.
+O sistema deve suportar até 20.000 usuários simultâneos em horários de
+pico.
+
+3. Segurança
+A proteção dos dados sensíveis dos pacientes deve seguir as melhores
+práticas de segurança da informação.

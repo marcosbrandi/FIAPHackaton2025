@@ -34,6 +34,11 @@ namespace HM.Infrastructure.Repositories
             return await _context.Medicos.FirstOrDefaultAsync(x => x.Crm == crm && x.Senha == senha);
         }
 
+        public async Task<Medico?> GetByCRM(string crm)
+        {
+            return await _context.Medicos.FirstOrDefaultAsync(x => x.Crm == crm);
+        }
+
         /// <summary>
         /// Faz uma busca de todos os médicos
         /// </summary>

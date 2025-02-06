@@ -1,6 +1,6 @@
 ﻿using HM.API.Application.Commands.Paciente;
-using HM.API.Application.Dtos;
 using HM.API.Application.Service;
+using HM.API.Services;
 using HM.Core.Mediator;
 using HM.Domain.Interfaces;
 using HM.WebAPI.Core.Controllers;
@@ -22,13 +22,14 @@ namespace HM.API.Controllers
             _configuration = configuration;
         }
 
+        //[Authorize]
         [HttpGet]
         public async Task<IActionResult> ListaTodos()
         {
             return CustomResponse(await _pacienteRepository.GetAllAsync());
         }
 
-
+        //[Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
@@ -40,6 +41,7 @@ namespace HM.API.Controllers
             return Ok(result);
         }
 
+        //[Authorize(Roles = "Paciente")]
         [HttpPost("")]
         public async Task<IActionResult> Adicionar(NovoPacienteCommand command)
         {
@@ -49,23 +51,28 @@ namespace HM.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] PacienteAuthenticateDto request)
         {
-            var paciente = await _pacienteRepository.Authenticate(request.CpfEmail, request.Senha);
-            if (paciente == null) return Unauthorized();
+            var storedHash = await _pacienteRepository.GetByEmailCpf(request.CpfEmail);
+            if (storedHash == null) return Unauthorized();
 
-            string? securityKey = _configuration["Jwt:Key"];
-            string? issuer = _configuration["Jwt:Issuer"];
-            string? audience = _configuration["Jwt:Audience"];
-
-            if (securityKey != null && issuer != null && audience != null)
+            var result = PasswordHasher.VerifyPassword(request.Senha, storedHash.Senha);
+            if (result == true)
             {
-                var tokenGenerator = new JwtTokenService(securityKey, issuer, audience);
-                var token = tokenGenerator.GenerateJwtToken(request.CpfEmail, "Paciente");
-                return Ok(new { Token = token });
+                string? securityKey = _configuration["Jwt:Key"];
+                string? issuer = _configuration["Jwt:Issuer"];
+                string? audience = _configuration["Jwt:Audience"];
+
+                if (securityKey != null && issuer != null && audience != null)
+                {
+                    var tokenGenerator = new JwtTokenService(securityKey, issuer, audience);
+                    var token = tokenGenerator.GenerateJwtToken(request.CpfEmail, "Paciente");
+                    return Ok(new { Token = token });
+                }
             }
 
             return Unauthorized();
         }
 
+        //[Authorize(Roles = "Paciente")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarPacienteCommand command)
         {
@@ -77,6 +84,7 @@ namespace HM.API.Controllers
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
+        //[Authorize(Roles = "Paciente")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {

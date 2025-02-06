@@ -9,7 +9,7 @@ https://github.com/marcosbrandi/FIAPHackaton2025
   "senha": "123456"
 
 - post api Agenda
-  "medicoId": "163185BE-BB45-4BEF-A297-DD0C46C76BFE",
+  "medicoId": "Inserir o Id do Médico",
   "especialidade": 1,
   "dataConsulta": "2025-02-05",
   "inicioConsulta": "08:00",

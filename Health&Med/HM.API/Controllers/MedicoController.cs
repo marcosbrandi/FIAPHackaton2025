@@ -1,9 +1,12 @@
 ﻿using HM.API.Application.Commands.Medico;
 using HM.API.Application.Service;
+using HM.API.Services;
 using HM.Core.Mediator;
 using HM.Domain.Enum;
 using HM.Domain.Interfaces;
+using HM.Infrastructure.Repositories;
 using HM.WebAPI.Core.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Dtos;
 
@@ -50,18 +53,22 @@ namespace HM.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] MedicoAuthenticateDto request)
         {
-            var medico = await _medicoRepository.Authenticate(request.Crm, request.Senha);
-            if (medico == null) return Unauthorized();
+            var storedHash = await _medicoRepository.GetByCRM(request.Crm);
+            if (storedHash == null) return Unauthorized();
 
-            string? securityKey = _configuration["Jwt:Key"];
-            string? issuer = _configuration["Jwt:Issuer"];
-            string? audience = _configuration["Jwt:Audience"];
-
-            if (securityKey != null && issuer != null && audience != null)
+            var result = PasswordHasher.VerifyPassword(request.Senha, storedHash.Senha);
+            if (result == true)
             {
-                var tokenGenerator = new JwtTokenService(securityKey, issuer, audience);
-                var token = tokenGenerator.GenerateJwtToken(request.Crm, "Medico");
-                return Ok(new { Token = token });
+                string? securityKey = _configuration["Jwt:Key"];
+                string? issuer = _configuration["Jwt:Issuer"];
+                string? audience = _configuration["Jwt:Audience"];
+
+                if (securityKey != null && issuer != null && audience != null)
+                {
+                    var tokenGenerator = new JwtTokenService(securityKey, issuer, audience);
+                    var token = tokenGenerator.GenerateJwtToken(request.Crm, "Medico");
+                    return Ok(new { Token = token });
+                }
             }
 
             return Unauthorized();

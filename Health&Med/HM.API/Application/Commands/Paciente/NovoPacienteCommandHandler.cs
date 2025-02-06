@@ -1,5 +1,7 @@
-﻿using FluentValidation;
+﻿using Azure.Core;
+using FluentValidation;
 using FluentValidation.Results;
+using HM.API.Services;
 using HM.Clientes.API.Application.Events;
 using HM.Core.Messages;
 using HM.Domain.Interfaces;
@@ -20,7 +22,7 @@ namespace HM.API.Application.Commands.Paciente
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var cliente = new Domain.Entities.Paciente(message.Nome, message.Cpf, message.Email, message.Senha);
+            var cliente = new Domain.Entities.Paciente(message.Nome, message.Cpf, message.Email, PasswordHasher.HashPassword(message.Senha));
 
             await _pacienteRepository.AddAsync(cliente);
 

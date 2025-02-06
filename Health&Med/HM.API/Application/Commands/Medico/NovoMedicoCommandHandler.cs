@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using HM.API.Services;
 using HM.Clientes.API.Application.Events;
 using HM.Core.Messages;
 using HM.Domain.Interfaces;
@@ -19,7 +20,7 @@ namespace HM.API.Application.Commands.Medico
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var cliente = new Domain.Entities.Medico(message.Nome, message.Cpf, message.Crm, message.Especialidade, message.Email, message.Senha);
+            var cliente = new Domain.Entities.Medico(message.Nome, message.Cpf, message.Crm, message.Especialidade, message.Email, PasswordHasher.HashPassword(message.Senha));
 
             await _medicoRepository.AddAsync(cliente);
 
