@@ -25,7 +25,13 @@ namespace HM.API.Controllers
             return CustomResponse(await _agendaRepository.GetAllAsync(medicoId));
         }
 
-        [Authorize(Roles = "Medico")]
+        [HttpGet("ListaDisponiveis")]
+        public async Task<IActionResult> ListaDisponiveis([FromQuery] Guid? medicoId, [FromQuery] DateOnly? dataConsulta)
+        {
+            return CustomResponse(await _agendaRepository.ListaDisponiveis(medicoId, dataConsulta));
+        }
+
+        //[Authorize(Roles = "Medico")]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {

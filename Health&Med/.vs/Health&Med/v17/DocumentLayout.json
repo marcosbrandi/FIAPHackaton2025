@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\application\\commands\\agenda\\novaagendacommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\application\\commands\\agenda\\novaagendacommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\controllers\\agendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\controllers\\agendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\application\\commands\\agenda\\atualizaragendacommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\application\\commands\\agenda\\atualizaragendacommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\application\\commands\\agenda\\agendarconsultacommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\application\\commands\\agenda\\agendarconsultacommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|c:\\users\\jhona\\source\\repos\\fiaphackaton2025\\health\u0026med\\hm.api\\controllers\\medicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FAED971-C133-4AF4-89C2-BEAB4098A7B6}|HM.API\\HM.API.csproj|solutionrelative:hm.api\\controllers\\medicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,64 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AgendarConsultaCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Agenda\\AgendarConsultaCommandHandler.cs",
-              "RelativeDocumentMoniker": "HM.API\\Application\\Commands\\Agenda\\AgendarConsultaCommandHandler.cs",
-              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Agenda\\AgendarConsultaCommandHandler.cs",
-              "RelativeToolTip": "HM.API\\Application\\Commands\\Agenda\\AgendarConsultaCommandHandler.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwCUAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "MedicoController.cs",
+              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\MedicoController.cs",
+              "RelativeDocumentMoniker": "HM.API\\Controllers\\MedicoController.cs",
+              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\MedicoController.cs",
+              "RelativeToolTip": "HM.API\\Controllers\\MedicoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T21:50:18.423Z",
+              "WhenOpened": "2025-02-06T00:48:06.673Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "NovaAgendaCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Agenda\\NovaAgendaCommandHandler.cs",
-              "RelativeDocumentMoniker": "HM.API\\Application\\Commands\\Agenda\\NovaAgendaCommandHandler.cs",
-              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Agenda\\NovaAgendaCommandHandler.cs",
-              "RelativeToolTip": "HM.API\\Application\\Commands\\Agenda\\NovaAgendaCommandHandler.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAMwDYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T21:27:48.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AtualizarAgendaCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Agenda\\AtualizarAgendaCommandHandler.cs",
-              "RelativeDocumentMoniker": "HM.API\\Application\\Commands\\Agenda\\AtualizarAgendaCommandHandler.cs",
-              "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Application\\Commands\\Agenda\\AtualizarAgendaCommandHandler.cs",
-              "RelativeToolTip": "HM.API\\Application\\Commands\\Agenda\\AtualizarAgendaCommandHandler.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAApwC0AAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T21:26:16.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "AgendaController.cs",
               "DocumentMoniker": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\AgendaController.cs",
               "RelativeDocumentMoniker": "HM.API\\Controllers\\AgendaController.cs",
               "ToolTip": "C:\\Users\\jhona\\source\\repos\\FIAPHackaton2025\\Health\u0026Med\\HM.API\\Controllers\\AgendaController.cs",
               "RelativeToolTip": "HM.API\\Controllers\\AgendaController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCkAAAA8AAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAADQAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T23:56:29.121Z",
               "EditorCaption": ""

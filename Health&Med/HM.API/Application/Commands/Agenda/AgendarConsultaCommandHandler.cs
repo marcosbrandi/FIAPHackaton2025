@@ -36,16 +36,8 @@ namespace HM.API.Application.Commands.Agenda
                 return ValidationResult;
             }
 
-            var actual = await _agendaRepository.FindAsync(message.Id);
-
-            if (actual == null)
-            {
-                AdicionarErro("Objeto não localizado!");
-                return ValidationResult;
-            }
-
-            actual.AgendarConsulta(message.PacienteId);
-            _agendaRepository.Update(actual);
+            agenda.AgendarConsulta(message.PacienteId);
+            _agendaRepository.Update(agenda);
 
             return await PersistirDados(_agendaRepository.UnitOfWork);
         }

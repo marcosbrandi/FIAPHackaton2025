@@ -41,7 +41,7 @@ namespace HM.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Faz uma busca de todos os médicos
+        /// Faz uma busca de todos as agendas
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
@@ -52,6 +52,28 @@ namespace HM.Infrastructure.Repositories
             if (medicoId != null)
             {
                 result = result.Where(x => x.MedicoId == medicoId);
+            }
+
+            return await result.ToListAsync();
+        }
+
+        /// <summary>
+        /// Faz uma busca de todos as agendas em aberto
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task<IEnumerable<Agenda>> ListaDisponiveis(Guid? medicoId, DateOnly? dataConsulta)
+        {
+            var result = _context.Agendas.Where(x => x.PacienteId == null).AsNoTracking();
+
+            if (medicoId != null)
+            {
+                result = result.Where(x => x.MedicoId == medicoId);
+            }
+
+            if (dataConsulta != null)
+            {
+                result = result.Where(x => x.DataConsulta == dataConsulta);
             }
 
             return await result.ToListAsync();
