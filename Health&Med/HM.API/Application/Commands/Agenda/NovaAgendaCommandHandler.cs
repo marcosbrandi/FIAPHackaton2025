@@ -81,5 +81,6 @@ namespace HM.API.Application.Commands.Agenda
         public Decimal Valor { get; set; }
         public int TempoMinutosConsulta { get; set; }
         public int TempoIntervaloMinutosConsulta { get; set; }
+        public Guid? PacienteId { get; set; }
     }
 }

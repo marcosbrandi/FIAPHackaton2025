@@ -92,5 +92,22 @@ namespace HM.API.Controllers
 
             return CustomResponse(await _mediator.EnviarComando(new ExcluirAgendaCommand(id)));
         }
+
+        //[Authorize(Roles = "Paciente")]
+        [HttpGet("{id}")]
+        //public async Task<IActionResult> ConsultaAgenda([FromRoute] Guid id, ConsultarAgendamentoCommand command)
+        public async Task<IActionResult> ConsultaAgenda([FromRoute] Guid id)
+        {
+            // Get Agenda Medico where PacienteId is null
+            //var agenda = await _agendaRepository.GetAgendaDisponivel(MedicoID, DataID);
+
+            var result = await _agendaRepository.FindAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
     }
 }

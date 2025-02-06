@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using HM.Core.Messages;
+using HM.Domain.Enum;
 using HM.Domain.Interfaces;
 using MediatR;
 
@@ -54,6 +55,9 @@ namespace HM.API.Application.Commands.Agenda
     public class AgendarConsultaCommand : Command
     {
         public Guid Id { get; set; }
+        public Guid MedicoId { get; set; }
         public Guid PacienteId { get; set; }
+        public DateOnly DataConsulta { get; set; }
+        public TimeOnly HoraConsulta { get; set; }
     }
 }
