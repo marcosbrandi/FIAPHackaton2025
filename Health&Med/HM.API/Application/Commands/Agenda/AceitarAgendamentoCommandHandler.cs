@@ -16,7 +16,7 @@ namespace HM.API.Application.Commands.Agenda
 
         public async Task<ValidationResult> Handle(AceitarAgendamentoCommand message, CancellationToken cancellationToken)
         {
-            var actual = await _agendaRepository.FindAsync(message.Id);
+            var actual = await _agendaRepository.FindAsync(message.AgendaId);
 
             if (actual == null)
             {
@@ -33,7 +33,7 @@ namespace HM.API.Application.Commands.Agenda
 
     public class AceitarAgendamentoCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid AgendaId { get; set; }
         public bool Aceita { get; set; }
     }
 }

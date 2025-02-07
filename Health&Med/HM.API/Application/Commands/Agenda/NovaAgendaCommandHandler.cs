@@ -72,7 +72,7 @@ namespace HM.API.Application.Commands.Agenda
 
     public class NovoAgendaCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid AgendaId { get; set; }
         public Guid MedicoId { get; set; }
         public Especialidade Especialidade { get; set; }
         public DateOnly DataConsulta { get; set; }

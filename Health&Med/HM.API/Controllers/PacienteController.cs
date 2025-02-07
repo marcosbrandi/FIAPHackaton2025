@@ -43,7 +43,6 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        [Authorize]
         public async Task<IActionResult> Adicionar(NovoPacienteCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));

@@ -42,6 +42,7 @@ namespace HM.Domain.Entities
             else
             {
                 PacienteId = null;
+                Justificativa = null;
             }
         }
 

@@ -16,7 +16,7 @@ namespace HM.API.Application.Commands.Agenda
 
         public async Task<ValidationResult> Handle(AceitarCancelamentoAgendamentoCommand message, CancellationToken cancellationToken)
         {
-            var actual = await _agendaRepository.FindAsync(message.Id);
+            var actual = await _agendaRepository.FindAsync(message.AgendaId);
 
             if (actual == null)
             {
@@ -24,21 +24,14 @@ namespace HM.API.Application.Commands.Agenda
                 return ValidationResult;
             }
 
-            if(message.Aceita)
-            {
-                actual.AceitarCancelamentoAgendamento();
-                _agendaRepository.Update(actual);
-                return await PersistirDados(_agendaRepository.UnitOfWork);
-            }
-
-            AdicionarErro("Agendamento não Aceito!");
-            return ValidationResult;
+            actual.AceitarCancelamentoAgendamento();
+            _agendaRepository.Update(actual);
+            return await PersistirDados(_agendaRepository.UnitOfWork);
         }
     }
 
     public class AceitarCancelamentoAgendamentoCommand : Command
     {
-        public Guid Id { get; set; }
-        public bool Aceita { get; set; }
+        public Guid AgendaId { get; set; }
     }
 }

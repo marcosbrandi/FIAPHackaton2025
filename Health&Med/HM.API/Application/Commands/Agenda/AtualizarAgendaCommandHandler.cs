@@ -17,7 +17,7 @@ namespace HM.API.Application.Commands.Agenda
 
         public async Task<ValidationResult> Handle(AtualizarAgendaCommand message, CancellationToken cancellationToken)
         {
-            var actual = await _agendaRepository.FindAsync(message.Id);
+            var actual = await _agendaRepository.FindAsync(message.AgendaId);
 
             if (actual == null)
             {
@@ -36,7 +36,7 @@ namespace HM.API.Application.Commands.Agenda
 
     public class AtualizarAgendaCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid AgendaId { get; set; }
         public Guid MedicoId { get; set; }
         public Guid? PacienteId { get; set; }
         public Especialidade Especialidade { get; set; }

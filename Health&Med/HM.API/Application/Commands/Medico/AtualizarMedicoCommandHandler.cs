@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using MediatR;
 using HM.Domain.Interfaces;
+using HM.API.Services;
 
 namespace HM.API.Application.Commands.Medico
 {
@@ -26,7 +27,7 @@ namespace HM.API.Application.Commands.Medico
                 return ValidationResult;
             }
 
-            actual.Update(message.Nome, message.Cpf, message.Crm, message.Especialidade, message.Email, message.Senha);
+            actual.Update(message.Nome, message.Cpf, message.Crm, message.Especialidade, message.Email, PasswordHasher.HashPassword(message.Senha));
             _medicoRepository.Update(actual);
 
             return await PersistirDados(_medicoRepository.UnitOfWork);

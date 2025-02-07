@@ -16,7 +16,7 @@ namespace HM.API.Application.Commands.Agenda
 
         public async Task<ValidationResult> Handle(ExcluirAgendaCommand message, CancellationToken cancellationToken)
         {
-            var actual = await _agendaRepository.FindAsync(message.Id);
+            var actual = await _agendaRepository.FindAsync(message.AgendaId);
 
             if (actual == null)
             {
@@ -32,11 +32,11 @@ namespace HM.API.Application.Commands.Agenda
 
     public class ExcluirAgendaCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid AgendaId { get; set; }
 
         public ExcluirAgendaCommand(Guid id)
         {
-            Id = id;
+            AgendaId = id;
         }
     }
 }

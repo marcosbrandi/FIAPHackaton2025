@@ -45,7 +45,6 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Adiciona(NovoMedicoCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));

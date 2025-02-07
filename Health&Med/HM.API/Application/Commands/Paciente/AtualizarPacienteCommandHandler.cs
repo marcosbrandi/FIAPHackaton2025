@@ -3,6 +3,7 @@ using FluentValidation.Results;
 using MediatR;
 using HM.Domain.Interfaces;
 using FluentValidation;
+using HM.API.Services;
 
 namespace HM.API.Application.Commands.Paciente
 {
@@ -27,7 +28,7 @@ namespace HM.API.Application.Commands.Paciente
                 return ValidationResult;
             }
 
-            actual.Update(message.Nome, message.Cpf, message.Email, message.Senha);
+            actual.Update(message.Nome, message.Cpf, message.Email, PasswordHasher.HashPassword(message.Senha));
             _pacienteRepository.Update(actual);
 
             return await PersistirDados(_pacienteRepository.UnitOfWork);

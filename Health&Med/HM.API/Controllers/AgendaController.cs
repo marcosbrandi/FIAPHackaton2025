@@ -55,7 +55,7 @@ namespace HM.API.Controllers
         [Authorize(Roles = "Paciente")]
         public async Task<IActionResult> AgendarConsulta([FromBody] AgendarConsultaCommand command)
         {
-            var result = await _agendaRepository.FindAsync(command.Id);
+            var result = await _agendaRepository.FindAsync(command.AgendaId);
             if (result == null)
             {
                 return NotFound();
@@ -63,7 +63,7 @@ namespace HM.API.Controllers
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
-        [HttpPatch("CancelarConsulta/{id}/{justificativa}")]
+        [HttpPatch("CancelarConsulta/{id}")]
         [Authorize(Roles = "Paciente")]
         public async Task<IActionResult> CancelarConsulta([FromRoute] Guid id, CancelarAgendamentoCommand command)
         {

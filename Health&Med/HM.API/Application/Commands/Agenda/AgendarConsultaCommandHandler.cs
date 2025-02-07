@@ -29,7 +29,7 @@ namespace HM.API.Application.Commands.Agenda
             }
 
             //Recebe os dados a agenda médica disponível
-            var agenda = await _agendaRepository.GetActiveAgenda(message.Id);
+            var agenda = await _agendaRepository.GetActiveAgenda(message.AgendaId);
             if (agenda == null)
             {
                 AdicionarErro("Horário indisponível para o médico selecionado!");
@@ -45,7 +45,7 @@ namespace HM.API.Application.Commands.Agenda
 
     public class AgendarConsultaCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid AgendaId { get; set; }
         public Guid PacienteId { get; set; }
     }
 }
