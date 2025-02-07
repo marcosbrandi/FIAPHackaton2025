@@ -483,3 +483,6 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 /kubernetes/lista de comandos.txt
+/Health&Med/.vs/Health&Med/v17/.suo
+/.gitignore
+/Health&Med/.vs/Health&Med/v17/DocumentLayout.json
