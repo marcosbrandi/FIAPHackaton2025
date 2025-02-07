@@ -52,11 +52,23 @@ namespace HM.API.Controllers
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
-        [HttpPost("AgendarConsulta")]
+        [HttpPut("AgendarConsulta")]
         //[Authorize(Roles = "Paciente")]
         public async Task<IActionResult> AgendarConsulta([FromBody] AgendarConsultaCommand command)
         {
             var result = await _agendaRepository.FindAsync(command.Id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return CustomResponse(await _mediator.EnviarComando(command));
+        }
+
+        [HttpPatch("CancelarConsulta/{id}/{justificativa}")]
+        //[Authorize(Roles = "Medico")]
+        public async Task<IActionResult> CancelarConsulta([FromRoute] Guid id, CancelarAgendamentoCommand command)
+        {
+            var result = await _agendaRepository.FindAsync(id);
             if (result == null)
             {
                 return NotFound();
@@ -79,6 +91,18 @@ namespace HM.API.Controllers
         [HttpPatch("AceitarAgendamento/{id}")]
         //[Authorize(Roles = "Medico")]
         public async Task<IActionResult> AceitarAgendamento([FromRoute] Guid id, AceitarAgendamentoCommand command)
+        {
+            var result = await _agendaRepository.FindAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return CustomResponse(await _mediator.EnviarComando(command));
+        }
+
+        [HttpPatch("AceitarCancelamentoAgendamento/{id}")]
+        //[Authorize(Roles = "Medico")]
+        public async Task<IActionResult> AceitarCancelamentoAgendamento([FromRoute] Guid id, AceitarCancelamentoAgendamentoCommand command)
         {
             var result = await _agendaRepository.FindAsync(id);
             if (result == null)

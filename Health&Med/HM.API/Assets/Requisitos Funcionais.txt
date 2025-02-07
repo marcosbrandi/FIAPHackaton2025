@@ -28,9 +28,9 @@ disponíveis, utilizando filtros como especialidade.
 Após selecionar o médico, o paciente deve poder visualizar a agenda do
 médico e o valor da consulta, e efetuar o agendamento.
 'GET' \ 'https://localhost:7157/api/Medico/3fa85f64-5717-4562-b3fc-2c963f66afa6'
-!!!! O usuário paciente poderá cancelar a consulta mediante justificativa.
-(Criar um EndPoint para o paciente cancelar a consulta - Enviando uma justificativa como parametro)
-(Criar um endpoint para que o médico possa aceitar as agendas cancelas - Listando por "Justificativas diferentes de NULL")
+O usuário paciente poderá cancelar a consulta mediante justificativa.
+'PATCH' \ 'https://localhost:7157/api/Agenda/CancelarConsulta/D8B2433D-41EC-476A-B581-0BBF522A367F/3333'
+'PATCH' \ 'https://localhost:7157/api/Agenda/AceitarCancelamentoAgendamento/D8B2433D-41EC-476A-B581-0BBF522A367F'
 
 Requisitos Não Funcionais
 1. Alta Disponibilidade

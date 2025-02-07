@@ -6,6 +6,7 @@ using FluentValidation.Results;
 using HM.Domain.Entities;
 using HM.Core.Messages;
 using HM.Core.DomainObjects;
+using HM.Infrastructure.Mappings;
 
 namespace HM.Infrastructure.Data
 {
@@ -27,6 +28,10 @@ namespace HM.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new MedicoMapping());
+            modelBuilder.ApplyConfiguration(new PacienteMapping());
+            modelBuilder.ApplyConfiguration(new AgendaMapping());
+
             modelBuilder.Ignore<ValidationResult>();
             modelBuilder.Ignore<Event>();
 

@@ -1,5 +1,7 @@
 ﻿using HM.Core.DomainObjects;
 using HM.Domain.Enum;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HM.Domain.Entities
 {
@@ -36,6 +38,17 @@ namespace HM.Domain.Entities
             Aceita = aceita;
         }
 
+        public void CancelarAgendamento(string justificativa)
+        {
+            Justificativa = justificativa;
+        }
+
+        public void AceitarCancelamentoAgendamento()
+        {
+            Justificativa = null;
+            Aceita = false;
+        }
+
         public Guid MedicoId { get; private set; }
         public Guid? PacienteId { get; private set; }
         public Especialidade Especialidade { get; private set; }
@@ -44,6 +57,8 @@ namespace HM.Domain.Entities
         public TimeOnly FimConsulta { get; private set; }
         public Decimal Valor { get; private set; }        
         public bool Aceita { get; private set; }
+        [Column(TypeName = "varchar(500)")]
+        public string? Justificativa { get; private set; }
 
         public Medico? Medico { get; private set; }
         public Paciente? Paciente { get; private set; }

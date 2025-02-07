@@ -24,6 +24,7 @@ namespace HM.Clientes.API.Configuration
 
             services.AddScoped<IRequestHandler<NovoAgendaCommand, ValidationResult>, NovoAgendaCommandHandler>();
             services.AddScoped<IRequestHandler<AtualizarAgendaCommand, ValidationResult>, AtualizarAgendaCommandHandler>();
+            //CancelarAgendamentoCommandHandler
 
             //services.AddScoped<INotificationHandler<MedicoRegistradoEvent>, MedicoEventHandler>();
 

@@ -11,6 +11,9 @@ namespace HM.Infrastructure.Mappings
             builder.HasKey(c => c.Id);
 
             builder.ToTable("agendas");
+
+            builder.Property(c => c.Justificativa)
+                .HasColumnType("varchar(500)");
         }
     }
 }
