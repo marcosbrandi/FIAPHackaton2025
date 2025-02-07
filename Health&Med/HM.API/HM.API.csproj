@@ -33,7 +33,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\HM.Core\HM.Core.csproj" />
-    <ProjectReference Include="..\HM.Domain\HM.Domain.csproj" />
     <ProjectReference Include="..\HM.Infrastructure\HM.Infrastructure.csproj" />
     <ProjectReference Include="..\HM.MessageBus\HM.MessageBus.csproj" />
     <ProjectReference Include="..\HM.WebAPI.Core\HM.WebAPI.Core.csproj" />

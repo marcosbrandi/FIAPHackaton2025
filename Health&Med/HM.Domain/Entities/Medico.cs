@@ -31,7 +31,7 @@ namespace HM.Domain.Entities
         [StringLength(100, ErrorMessage = "O campo Nome permite até 100 caracteres")]
         public string Nome { get; private set; } = string.Empty;
         public string Cpf { get; private set; } = string.Empty;
-        public string Cpf2 => Tools.MaskCpf(Cpf);
+        public string DisplayCpf => Tools.MaskCpf(Cpf);
         public string Crm { get; private set; } = string.Empty;
         public Especialidade Especialidade { get; private set; }
 

@@ -1,14 +1,12 @@
 
-using HM.API.Application.Dtos;
+using HM.Domain.Dtos;
 using HM.Clientes.API.Configuration;
 using HM.Infrastructure.Data;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Configuration;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text;

@@ -1,4 +1,4 @@
-﻿namespace HM.API.Application.Dtos
+﻿namespace HM.Domain.Dtos
 {
     public class JwtSettings //(string key, string issuer, string audience)
     {

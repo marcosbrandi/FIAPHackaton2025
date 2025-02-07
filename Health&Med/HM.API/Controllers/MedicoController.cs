@@ -2,13 +2,11 @@
 using HM.API.Application.Service;
 using HM.API.Services;
 using HM.Core.Mediator;
+using HM.Domain.Dtos;
 using HM.Domain.Enum;
 using HM.Domain.Interfaces;
-using HM.Infrastructure.Repositories;
 using HM.WebAPI.Core.Controllers;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Ordering.Application.Dtos;
 
 namespace HM.API.Controllers
 {

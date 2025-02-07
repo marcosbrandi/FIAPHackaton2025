@@ -2,10 +2,10 @@
 using HM.API.Application.Service;
 using HM.API.Services;
 using HM.Core.Mediator;
+using HM.Domain.Dtos;
 using HM.Domain.Interfaces;
 using HM.WebAPI.Core.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Ordering.Application.Dtos;
 
 namespace HM.API.Controllers
 {

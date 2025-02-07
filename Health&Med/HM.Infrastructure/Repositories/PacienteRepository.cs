@@ -1,4 +1,5 @@
 ﻿using HM.Core.Data;
+using HM.Domain.Dtos;
 using HM.Domain.Entities;
 using HM.Domain.Interfaces;
 using HM.Infrastructure.Data;
@@ -32,19 +33,15 @@ namespace HM.Infrastructure.Repositories
             return await _context.Pacientes.FirstOrDefaultAsync(x => x.Email == emailCpf || x.Cpf == emailCpf);
         }
 
-        public async Task<Paciente?> Authenticate(string emailCpf, string senha)
-        {
-            return await _context.Pacientes.FirstOrDefaultAsync(x => x.Email == emailCpf && x.Senha == senha || x.Cpf == emailCpf && x.Senha == senha);
-        }
-
         /// <summary>
         /// Faz uma busca de todos os médicos
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<IEnumerable<Paciente>> GetAllAsync()
+        public async Task<IEnumerable<PacienteResponse>> GetAllAsync()
         {
-            return await _context.Pacientes.ToListAsync();
+            var res = await _context.Pacientes.ToListAsync();
+            return res.Select(x=> new PacienteResponse(Id: x.Id, Nome: x.Nome, Cpf: x.DisplayCpf, Email: x.Email));
         }
 
         /// <summary>

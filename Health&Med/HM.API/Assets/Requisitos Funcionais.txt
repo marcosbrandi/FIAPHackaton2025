@@ -3,7 +3,6 @@ Requisitos Funcionais
 O sistema deve permitir que o médico faça login usando o número de CRM
 e uma senha.
 'POST' 'https://localhost:7157/api/Medico/login
- !!! (Mascarar CPF)
 
 2. Cadastro/Edição de Horários Disponíveis (Médico)
 O sistema deve permitir que o médico cadastre e edite os horários
@@ -19,7 +18,6 @@ ACEITE / 'PATCH' 'https://localhost:7157/api/Agenda/AceitarAgendamento/3fa85f64-
 O sistema deve permitir que o paciente faça login usando um e-mail ou
 CPF e uma senha.
 'POST' \ 'https://localhost:7157/api/Paciente/login' 
-!!! (Mascarar CPF)
 
 5. Busca por Médicos (Paciente)
 O sistema deve permitir que o paciente visualize a lista de médicos

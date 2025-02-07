@@ -1,4 +1,5 @@
 ﻿using HM.Core.Data;
+using HM.Domain.Dtos;
 using HM.Domain.Entities;
 using HM.Domain.Enum;
 using HM.Domain.Interfaces;
@@ -29,11 +30,6 @@ namespace HM.Infrastructure.Repositories
             return await _context.Medicos.FindAsync(id);
         }
 
-        public async Task<Medico?> Authenticate(string crm, string senha)
-        {
-            return await _context.Medicos.FirstOrDefaultAsync(x => x.Crm == crm && x.Senha == senha);
-        }
-
         public async Task<Medico?> GetByCRM(string crm)
         {
             return await _context.Medicos.FirstOrDefaultAsync(x => x.Crm == crm);
@@ -44,7 +40,7 @@ namespace HM.Infrastructure.Repositories
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<IEnumerable<Medico>> GetAllAsync(string? nome, Especialidade? especialidade)
+        public async Task<IEnumerable<MedicoResponse>> GetAllAsync(string? nome, Especialidade? especialidade)
         {
             var result = _context.Medicos.AsNoTracking();
 
@@ -58,7 +54,9 @@ namespace HM.Infrastructure.Repositories
                 result = result.Where(x => x.Especialidade == especialidade);
             }
 
-            return await result.ToListAsync();
+            var res = await result.ToListAsync();
+
+            return res.Select(x => new MedicoResponse(Id: x.Id, Nome: x.Nome, Crm: x.Crm, Cpf: x.DisplayCpf, Email: x.Email));
         }
 
         /// <summary>
