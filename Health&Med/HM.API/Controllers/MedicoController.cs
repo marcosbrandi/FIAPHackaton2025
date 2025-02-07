@@ -6,6 +6,7 @@ using HM.Domain.Dtos;
 using HM.Domain.Enum;
 using HM.Domain.Interfaces;
 using HM.WebAPI.Core.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HM.API.Controllers
@@ -24,6 +25,7 @@ namespace HM.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> ListaTodos([FromQuery] string? nome, [FromQuery] Especialidade? especialidade)
         {
             var result = await _medicoRepository.GetAllAsync(nome, especialidade);
@@ -31,6 +33,7 @@ namespace HM.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
             var result = await _medicoRepository.FindAsync(id);
@@ -42,7 +45,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Adiciona(NovoMedicoCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));
@@ -73,7 +76,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarMedicoCommand command)
         {
             var result = await _medicoRepository.FindAsync(id);
@@ -85,7 +88,7 @@ namespace HM.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var result = await _medicoRepository.FindAsync(id);

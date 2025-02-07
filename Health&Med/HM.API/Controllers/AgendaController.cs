@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HM.API.Controllers
 {
-    //[Authorize]
     public class AgendaController : MainController
     {
         private readonly IMediatorHandler _mediator;
@@ -18,22 +17,22 @@ namespace HM.API.Controllers
             _mediator = mediator;
             _agendaRepository = agendaRepository;
         }
-
-        //[Authorize(Roles = "Medico")]
+        
+        [Authorize(Roles = "Medico")]
         [HttpGet]
         public async Task<IActionResult> ListaTodos([FromQuery] Guid? medicoId)
         {
             return CustomResponse(await _agendaRepository.GetAllAsync(medicoId));
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("ListaDisponiveis")]
         public async Task<IActionResult> ListaDisponiveis([FromQuery] Guid? medicoId, [FromQuery] DateOnly? dataConsulta)
         {
             return CustomResponse(await _agendaRepository.ListaDisponiveis(medicoId, dataConsulta));
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Medico")]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
@@ -46,14 +45,14 @@ namespace HM.API.Controllers
         }
 
         [HttpPost("")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Adicionar(NovoAgendaCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
         [HttpPut("AgendarConsulta")]
-        //[Authorize(Roles = "Paciente")]
+        [Authorize(Roles = "Paciente")]
         public async Task<IActionResult> AgendarConsulta([FromBody] AgendarConsultaCommand command)
         {
             var result = await _agendaRepository.FindAsync(command.Id);
@@ -65,7 +64,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPatch("CancelarConsulta/{id}/{justificativa}")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Paciente")]
         public async Task<IActionResult> CancelarConsulta([FromRoute] Guid id, CancelarAgendamentoCommand command)
         {
             var result = await _agendaRepository.FindAsync(id);
@@ -77,7 +76,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarAgendaCommand command)
         {
             var result = await _agendaRepository.FindAsync(id);
@@ -89,7 +88,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPatch("AceitarAgendamento/{id}")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> AceitarAgendamento([FromRoute] Guid id, AceitarAgendamentoCommand command)
         {
             var result = await _agendaRepository.FindAsync(id);
@@ -101,7 +100,7 @@ namespace HM.API.Controllers
         }
 
         [HttpPatch("AceitarCancelamentoAgendamento/{id}")]
-        //[Authorize(Roles = "Medico")]
+        [Authorize(Roles = "Medico")]
         public async Task<IActionResult> AceitarCancelamentoAgendamento([FromRoute] Guid id, AceitarCancelamentoAgendamentoCommand command)
         {
             var result = await _agendaRepository.FindAsync(id);

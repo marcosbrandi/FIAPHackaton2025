@@ -35,7 +35,14 @@ namespace HM.Domain.Entities
 
         public void AceitarAgendamento(bool aceita)
         {
-            Aceita = aceita;
+            if (aceita)
+            {
+                Aceita = true;
+            }
+            else
+            {
+                PacienteId = null;
+            }
         }
 
         public void CancelarAgendamento(string justificativa)
@@ -47,6 +54,7 @@ namespace HM.Domain.Entities
         {
             Justificativa = null;
             Aceita = false;
+            PacienteId = null;
         }
 
         public Guid MedicoId { get; private set; }
@@ -55,7 +63,7 @@ namespace HM.Domain.Entities
         public DateOnly DataConsulta { get; private set; }
         public TimeOnly InicioConsulta { get; private set; }
         public TimeOnly FimConsulta { get; private set; }
-        public Decimal Valor { get; private set; }        
+        public Decimal Valor { get; private set; }
         public bool Aceita { get; private set; }
         [Column(TypeName = "varchar(500)")]
         public string? Justificativa { get; private set; }
