@@ -27,9 +27,7 @@ namespace HM.Domain.Entities
         public string Nome { get; private set; } = string.Empty;
 
         public string Cpf { get; private set; } = string.Empty;
-        //public string Cpf2
-        //{
-        //    get { { return Tools.MaskCpf(Cpf) }}
+        public string Cpf2 => Tools.MaskCpf(Cpf);
 
         [Required(ErrorMessage = "e-Mail não informado", AllowEmptyStrings = false)]
         [EmailAddress(ErrorMessage = "e-Mail em formato inválido.")]
