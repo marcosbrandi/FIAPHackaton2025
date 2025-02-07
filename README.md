@@ -62,7 +62,7 @@ Implementamos um pipeline de CI/CD para automatizar testes e implantações, qua
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/marcosbrandi/FIAPHM/tree/master
+   git clone https://github.com/marcosbrandi/FIAPHackaton2025
 
 # Link do Projeto no YouTube
 - 
