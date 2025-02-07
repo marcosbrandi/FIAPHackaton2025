@@ -5,9 +5,9 @@
         public static string MaskCpf(string cpf)
         {
 
-            if (cpf.Length != 11)
+            //if (cpf.Length != 11)
 
-                throw new ArgumentException("O CPF deve ter 11 dígitos.");
+            //    throw new ArgumentException("O CPF deve ter 11 dígitos.");
 
             // Mascarar os primeiros 6 dígitos do CPF
 
