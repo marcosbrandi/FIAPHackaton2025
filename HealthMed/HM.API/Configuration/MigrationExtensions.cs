@@ -12,6 +12,8 @@ namespace TechChallenge.API.Configuration
 			var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
 			var dataContext = scope.ServiceProvider.GetRequiredService<HMDbContext>();
 
+
+
 			dataContext.Database.Migrate();
 
 			return app;
