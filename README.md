@@ -65,7 +65,7 @@ Implementamos um pipeline de CI/CD para automatizar testes e implantações, qua
    git clone https://github.com/marcosbrandi/FIAPHackaton2025
 
 # Link do Projeto no YouTube
-- 
+- https://www.youtube.com/watch?v=VneWK0gBXN4
 <!--# Pessoas Contribuidoras-->
 
 # Desenvolvedoras do Projeto
