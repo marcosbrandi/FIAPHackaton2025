@@ -23,14 +23,14 @@ namespace HM.API.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet]
+        [HttpGet("ListarPacientes")]
         [Authorize]
         public async Task<IActionResult> ListaTodos()
         {
             return CustomResponse(await _pacienteRepository.GetAllAsync());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("BuscarPacientePorId")]
         [Authorize]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
@@ -42,13 +42,13 @@ namespace HM.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("")]
+        [HttpPost("CadastrarPaciente")]
         public async Task<IActionResult> Adicionar(NovoPacienteCommand command)
         {
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] PacienteAuthenticateDto request)
         {
             var storedHash = await _pacienteRepository.GetByEmailCpf(request.CpfEmail);
@@ -72,11 +72,11 @@ namespace HM.API.Controllers
             return Unauthorized();
         }
 
-        [HttpPut("{id}")]
-        [Authorize]
-        public async Task<IActionResult> Atualizar([FromRoute] Guid id, AtualizarPacienteCommand command)
+        [HttpPut("AtualizarPaciente")]
+        [Authorize (Roles = "Paciente")]
+        public async Task<IActionResult> Atualizar([FromBody] AtualizarPacienteCommand command)
         {
-            var result = await _pacienteRepository.FindAsync(id);
+            var result = await _pacienteRepository.FindAsync(command.PacienteId);
             if (result == null)
             {
                 return NotFound();
@@ -84,7 +84,7 @@ namespace HM.API.Controllers
             return CustomResponse(await _mediator.EnviarComando(command));
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeletarPaciente")]
         [Authorize]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {

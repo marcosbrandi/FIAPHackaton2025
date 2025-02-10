@@ -6,7 +6,7 @@ namespace HM.API.Application.Commands.Medico
 {
     public class AtualizarMedicoCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid MedicoId { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Cpf { get; set; } = string.Empty;
         public string Crm { get; set; } = string.Empty;
@@ -24,7 +24,7 @@ namespace HM.API.Application.Commands.Medico
         {
             public RegistrarMedicoValidation()
             {
-                RuleFor(c => c.Id)
+                RuleFor(c => c.MedicoId)
                     .NotEqual(Guid.Empty)
                     .WithMessage("Id do Medico inválido");
 

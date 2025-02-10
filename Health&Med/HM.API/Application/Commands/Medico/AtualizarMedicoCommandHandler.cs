@@ -19,7 +19,7 @@ namespace HM.API.Application.Commands.Medico
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var actual = await _medicoRepository.FindAsync(message.Id);
+            var actual = await _medicoRepository.FindAsync(message.MedicoId);
 
             if (actual == null)
             {

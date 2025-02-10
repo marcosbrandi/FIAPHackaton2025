@@ -1,6 +1,6 @@
 https://github.com/marcosbrandi/FIAPHackaton2025
 
-- post api Medico
+- Cadastrar Medico Medico
   "nome": "Doutor Um",
   "cpf": "123456789-12",
   "crm": "12.121 SP",
@@ -8,8 +8,14 @@ https://github.com/marcosbrandi/FIAPHackaton2025
   "email": "doutor_um@medicos.org.br",
   "senha": "123456"
 
-- post api Agenda
-  "medicoId": "Inserir o Id do M�dico",
+- post api login Médico
+  {
+  "crm": "12.121 SP",
+  "senha": "123456"
+  }
+
+- Cadastrar Agenda
+  "medicoId": "Inserir o Id do M�dico",
   "especialidade": 1,
   "dataConsulta": "2025-02-05",
   "inicioConsulta": "08:00",
@@ -18,8 +24,94 @@ https://github.com/marcosbrandi/FIAPHackaton2025
   "tempoMinutosConsulta": 45,
   "tempoIntervaloMinutosConsulta": 15
 
-- post api Paciente
+- Cadastrar Paciente
   "nome": "Paciente Um",
   "cpf": "987654321-00",
   "email": "paciente_um@gmail.com",
-  "senha": "654321"
+  "senha": "123456"
+
+- Login Paciente
+  {
+  "cpfEmail": "987654321-00",
+  "senha": "123456"
+  }
+
+- (get)api/Medico (Mostra a lista de médicos, necessário login obs: sem filtro de role)
+  ex retorno: 
+  [
+  {
+    "id": "cea4c3c5-4d23-4c9b-8de0-78a384aeb1e3",
+    "nome": "Doutor Um",
+    "crm": "12.121 SP",
+    "cpf": "123.***.***--1",
+    "email": "doutor_um@medicos.org.br"
+  }
+  ]
+
+- api/Agenda/ListaDisponíveis (Mostra aos pacientes a lista de agendas disponíveis)
+  ex retorno: [ {
+    "medicoId": "cea4c3c5-4d23-4c9b-8de0-78a384aeb1e3",
+    "pacienteId": null,
+    "especialidade": 1,
+    "dataConsulta": "2025-02-05",
+    "inicioConsulta": "08:00:00",
+    "fimConsulta": "08:45:00",
+    "valor": 80,
+    "aceita": false,
+    "justificativa": null,
+    "medico": null,
+    "paciente": null,
+    "id": "71d0d4a6-6227-4e0c-bebc-18f89aa518c1",
+    "notificacoes": null
+  }
+  ]
+
+- put/api/Agenda/AgendarConsulta (pr� agendamento da consulta, necess�rio login do paciente para executar chamada)
+    "agendaId": "1646F3C0-6EB0-4975-8BC9-29917B94B224",
+    "pacienteId": "F8B0EF3A-6BF6-4D00-884F-CF9572189A69"
+
+- put/api/Agenda/AgendarConsulta (Agendamento feito pelo paciente, necess�rio login paciente)
+    "agendaId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "pacienteId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+
+- patch/api/Agenda/AceitarAgendamento (Confirma��o/Recusa do Agendamento feita pelo m�dico, necess�rio login m�dico)
+    "agendaId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "aceita": true/false (true para confirmar, false para recusar)
+
+- patch/api/Agenda/CancelarConsulta (Cancelamento da consulta feita pelo paciente ap�s confirma��o do m�dico, necess�rio login paciente)
+    "agendaId": "71D0D4A6-6227-4E0C-BEBC-18F89AA518C1",
+    "justificativa": "dor de cabe�a"
+
+- patch/api/Agenda/AceitarCancelamentoAgendamento (Aceitar cancelamento feito pelo m�dico ap�s uma solicita��o do cliente de cancelamento de consulta, necess�rio login m�dico)
+    "agendaId": "71D0D4A6-6227-4E0C-BEBC-18F89AA518C1"
+
+--Caso hor�rio agendado por outro paciente
+- patch/api/Agenda/AgendarConsulta
+  "agendaId": "066BB56D-3876-4E7F-8904-945994490999",
+  "pacienteId": "F8B0EF3A-6BF6-4D00-884F-CF9572189A69"
+
+  retorno esperado
+  {
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Mensagens": [
+      "Hor�rio indispon�vel para o m�dico selecionado!"
+    ]
+  }
+}
+
+
+Demonstração CI/CD
+
+cd 'C:\Users\felip\Source\Repos\FIAPHackaton2025\Health&Med\'
+
+./ci-cd.sh
+
+
+Demosntração do stress test
+-Executar comando:  
+
+cd 'C:\Users\felip\Source\Repos\FIAPHackaton2025\Health&Med\'
+
+docker run -i grafana/k6 run --insecure-skip-tls-verify - <stress_test.js

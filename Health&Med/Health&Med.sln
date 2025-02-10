@@ -33,6 +33,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HM.Domain", "HM.Domain\HM.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HM.Infrastructure", "HM.Infrastructure\HM.Infrastructure.csproj", "{2E107E80-AF8F-41F8-A810-9AF3C8E5AC0A}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FFEFEB72-7B6A-4E1E-9D43-A0ACA4BBE1C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{91C01AF9-FC93-401D-84CA-85807AE099FA}"
+	ProjectSection(SolutionItems) = preProject
+		ci-cd.sh = ci-cd.sh
+		stress_test.js = stress_test.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +71,10 @@ Global
 		{2E107E80-AF8F-41F8-A810-9AF3C8E5AC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E107E80-AF8F-41F8-A810-9AF3C8E5AC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E107E80-AF8F-41F8-A810-9AF3C8E5AC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFEFEB72-7B6A-4E1E-9D43-A0ACA4BBE1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEFEB72-7B6A-4E1E-9D43-A0ACA4BBE1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEFEB72-7B6A-4E1E-9D43-A0ACA4BBE1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEFEB72-7B6A-4E1E-9D43-A0ACA4BBE1C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

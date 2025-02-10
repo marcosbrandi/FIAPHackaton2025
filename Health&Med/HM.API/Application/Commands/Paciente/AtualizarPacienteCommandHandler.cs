@@ -20,7 +20,7 @@ namespace HM.API.Application.Commands.Paciente
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var actual = await _pacienteRepository.FindAsync(message.Id);
+            var actual = await _pacienteRepository.FindAsync(message.PacienteId);
 
             if (actual == null)
             {
@@ -36,11 +36,9 @@ namespace HM.API.Application.Commands.Paciente
     }
     public class AtualizarPacienteCommand : Command
     {
-        public Guid Id { get; set; }
+        public Guid PacienteId { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Cpf { get; set; } = string.Empty;
-        public string Crm { get; set; } = string.Empty;
-        public string Especialidade { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Senha { get; set; } = string.Empty;
 
@@ -54,7 +52,7 @@ namespace HM.API.Application.Commands.Paciente
         {
             public RegistrarPacienteValidation()
             {
-                RuleFor(c => c.Id)
+                RuleFor(c => c.PacienteId)
                     .NotEqual(Guid.Empty)
                     .WithMessage("Id do Paciente inválido");
 

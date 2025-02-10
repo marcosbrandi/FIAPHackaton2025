@@ -1,4 +1,3 @@
-
 using HM.Domain.Dtos;
 using HM.Clientes.API.Configuration;
 using HM.Infrastructure.Data;
@@ -11,6 +10,9 @@ using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using TechChallenge.API.Configuration;
+using HM.Domain.Interfaces;
+using HM.Infrastructure.Repositories;
+using HM.Core.Mediator;
 
 namespace HM.API
 {
@@ -51,8 +53,24 @@ namespace HM.API
                 options.AddPolicy("Paciente", policy => policy.RequireClaim(ClaimTypes.Role, "Paciente"));
             });
 
+            // Registrar os repositórios
+            builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
+            builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+            builder.Services.AddScoped<IAgendaRepository, AgendaRepository>();
+
+            // Registrar o MediatR e o IMediatorHandler
+            builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+            builder.Services.AddScoped<IMediatorHandler, MediatorHandler>();
+
             // Add services to the container.
-            builder.Services.AddHttpClient();
+            builder.Services.AddHttpClient("InsecureHttpClient").ConfigurePrimaryHttpMessageHandler(() =>
+            {
+                return new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+                };
+            });
+
             builder.Services.AddControllers();
 
             builder.Services.AddCors(options =>
@@ -67,7 +85,6 @@ namespace HM.API
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddSwaggerGen();
             builder.Services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -99,26 +116,15 @@ namespace HM.API
                 });
             });
 
-            builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-
-            builder.Services.RegisterServices();
-
-            builder.Services.AddMessageBusConfiguration(builder.Configuration);
-
             var app = builder.Build();
 
+            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1"));
             }
-
-            app.UseCors("Total");
-
-            app.UseSwagger();
-
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Contatos API V1"); });
-
-            app.ApplyMigrations();
 
             app.UseHttpsRedirection();
 
